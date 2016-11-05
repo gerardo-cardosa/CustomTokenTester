@@ -24,6 +24,7 @@
     
     <textarea id="webCreds" rows="4" cols="50" placeholder="Here goes the web credentials.....">
     </textarea>
+    <button id="initialize_ui" type="button" onclick="initializeUI()">Initialize UI</button>
     
   </div>
   
@@ -38,18 +39,40 @@
   <!-- Firebase Javascript Credentials -->
   
   <div id="JSONContentCredentials">
-    
+    <textarea id="webCreds" rows="4" cols="50" placeholder="Here goes the web credentials.....">
+    </textarea>
+    <button id="initialize_server" type="button">Initialize Server</button>
   </div>
   
   <!-- Firebase JWT -->
   
   <div id="JWT">
+    <!-- This will contain the JWT separated by dots and by colors-->
+    <div id="headers">
+      
+    </div>
+    <div id="claims">
+      
+    </div>
+    <div id="key">
+      
+    </div>
     
+    <!-- This section will contain the JWT claims decoded in base 64-->
   </div>
   
   <!-- Firebase Auth Current User Information -->
   <div id="authInformation" >
-    
+    <div id="user_info">
+      
+    </div>
+    <div id="access_token">
+      
+    </div>
+    <div id="firebaseFields">
+      <label id="uid"><label>
+      <li id="extraClaims"></li>
+    </div>
   </div>
 
   <script src="main.js"></script> 
