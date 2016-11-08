@@ -39,9 +39,11 @@
   <!-- Firebase Javascript Credentials -->
   
   <div id="JSONContentCredentials">
-    <textarea id="webCreds" rows="4" cols="50" placeholder="Here goes the web credentials.....">
+    <textarea id="serverCreds" rows="4" cols="50" placeholder="Here goes the web credentials.....">
     </textarea>
-    <button id="initialize_server" type="button">Initialize Server</button>
+	
+    <input type="text" id="dbURL" placeholder="Add the database URL..."/>
+    <button id="initialize_server" type="button" onclick="initializeServer()">Initialize Server</button>
   </div>
   
   <!-- Firebase JWT -->

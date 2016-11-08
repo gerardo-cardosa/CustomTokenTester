@@ -1,14 +1,59 @@
 var express = require('express');
 var open = require('open');
+var admin = require("firebase-admin");
 
 var app = express();
-
+var bodyParser = require('body-parser');
 app.use(express.static('public'));
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
 })
 
+
+/**** This function initialices the server ******/
+app.post('/setServer', function(req, res){
+
+console.log(req.body);	
+	var serviceAccount = req.body.serviceAccount;
+	var dbURL = req.body.dbURL;	
+	
+	var response = {code:200, message:'Server Initialized'}
+	
+	admin.initializeApp({
+	  credential: admin.credential.cert(serviceAccount),
+	  databaseURL: dbURL
+	});
+	
+	
+	res.json(response);
+	
+});
+
+/** This function returns a custom token **/
+app.post('/getCT', function(req, res){
+
+	var uid = req.body.uid;
+	var response = {code:'', message:''}
+
+	admin.auth().createCustomToken(uid)
+	.then(function(cT){
+		response.code = 200;
+		response.message = cT;
+	
+		res.json(response);
+	})
+	.catch(function(error){
+	
+	  response.code = 500;
+	  response.message = error.message;
+	
+	  res.status(500).json(response);
+	});
+});
 
 /*
 	TODO
@@ -52,5 +97,5 @@ var server = app.listen(8081, function () {
    
    console.log("Example app listening at http://%s:%s", host, port)
 	
-   open('http://localhost:'+port);
+   //open('http://localhost:'+port);
 })
