@@ -8,6 +8,10 @@ Download the project, go to the folder and run the command "node custom.js"
 Dependencies:
 npm install -g firebase-admin --save
 npm install express --save
+npm install body-parser --save
+npm install cookie-parser --save
+npm install multer --save
+npm install --save open
 
 
 How to use:
