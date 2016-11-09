@@ -28,7 +28,7 @@
   <div id="webCredentials">
     <label>Firebase UI Credentials</label>
 <br />
-    <textarea id="webCreds" rows="8" cols="70" placeholder="Here goes the web credentials.....">
+    <textarea id="webCreds" rows="8"  placeholder="Here goes the web credentials.....">
     </textarea>
 <br />
     <button id="initialize_ui" type="button"  class="btn btn-success" onclick="initializeUI()">Initialize UI</button>
@@ -43,7 +43,7 @@
   
   <div id="JSONContentCredentials">
     <label>Firebase Service Account Credentials</label> <br />
-    <textarea id="serverCreds" rows="8" cols="70" placeholder="Here goes the web credentials.....">
+    <textarea id="serverCreds" rows="8"  placeholder="Here goes the web credentials.....">
     </textarea>
 	<br />
 	<br />
@@ -60,7 +60,7 @@
 	<br />
 	<br />
 	<label>Extra Claims</label> <br />
-	<textarea id="extraClaims" rows="4" cols="50" placeholder="Here goes the extra claims.....">
+	<textarea id="extraClaims" rows="4"  placeholder="Here goes the extra claims.....">
     	</textarea>
 	<br />
 	<button type="button" id="getCTButton" class="btn btn-primary" onclick="getCustomtoken();">Get Custom Token</button>
