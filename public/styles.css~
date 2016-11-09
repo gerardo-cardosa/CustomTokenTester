@@ -13,7 +13,3 @@ body {
 label{
 	word-wrap: break-word;
 }
-
-textarea{
-	width:100%;
-}
