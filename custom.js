@@ -14,6 +14,11 @@ app.get('/', function (req, res) {
 })
 
 
+app.get('/isFirebaseEnabled', function (req, res) {
+   res.send( admin.apps.length > 0 );
+})
+
+
 /**** This function initialices the server ******/
 app.post('/setServer', function(req, res){
 
@@ -37,13 +42,14 @@ console.log(req.body);
 app.post('/getCT', function(req, res){
 
 	var uid = req.body.uid;
+	var claims = req.body.claims;
 	var response = {code:'', message:''}
 
-	admin.auth().createCustomToken(uid)
+	admin.auth().createCustomToken(uid, claims)
 	.then(function(cT){
 		response.code = 200;
 		response.message = cT;
-	
+		console.log('New Custom Token: ' + cT)
 		res.json(response);
 	})
 	.catch(function(error){
@@ -58,10 +64,10 @@ app.post('/getCT', function(req, res){
 /*
 	TODO
 
-	1.- Function that receives the JSON file and initialices Firebase
-	2.- Function that Creates the Custom Token and returns it.
-	3.- Function that receives every credential separated and uses JWT library to create the custom token
-	4.- Function that creates a custom token using the JWT library (similar to a 3rd pary app)
+	1.- Function that receives the JSON file and initialices Firebase -- Done
+	2.- Function that Creates the Custom Token and returns it. -- Done
+	3.- Function that receives every credential separated and uses JWT library to create the custom token -- Done
+	4.- Function that creates a custom token using the JWT library (similar to a 3rd pary app) -- Not Done
 	
 /*
 
@@ -97,5 +103,5 @@ var server = app.listen(8081, function () {
    
    console.log("Example app listening at http://%s:%s", host, port)
 	
-   //open('http://localhost:'+port);
+   open('http://localhost:'+port);
 })

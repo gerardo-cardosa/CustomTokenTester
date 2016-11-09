@@ -4,3 +4,12 @@
   font-size: 24px;
   margin: 15px;
 }
+
+body {
+	padding-left: 10px;
+}
+
+
+label{
+	word-wrap: break-word;
+}
